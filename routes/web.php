@@ -1,20 +1,32 @@
 <?php
 
+use App\Http\Controllers\AssistController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StudentController;
+use App\Models\Student;
+use App\Models\Assist;
 
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('products', ProductController::class);
+
+Route::get('/log')->middleware('log');
+
+Route::get('/students', function () {
+    return view('students.index');
+})->middleware(['auth', 'verified'])->name('students.index');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::resource('students', StudentController::class);
+    Route::get('assists/{dni}', [StudentController::class,'assists'])->name('student.assists');
+    Route::get('assist/create', [AssistController::class, 'create'])->name('assists.create');
+    Route::post('assist/store', [AssistController::class, 'store'])->name('assists.store');
+});
+
+
+require __DIR__.'/auth.php';

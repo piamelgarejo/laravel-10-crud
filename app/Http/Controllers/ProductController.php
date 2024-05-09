@@ -77,4 +77,18 @@ class ProductController extends Controller
         return redirect()->route('products.index')
                 ->withSuccess('Product is deleted successfully.');
     }
-}
+
+    public function details(){
+        return('details');
+    }
+
+    public function insertProduct(){
+
+    }
+
+    public function allProducts($id){
+        $product = Product::find($id);
+        $product->toJson();
+        return $product;
+    }
+}   
