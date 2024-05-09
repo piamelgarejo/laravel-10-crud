@@ -6,6 +6,8 @@ use App\Models\Assist;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreAssistRequest;
 use Illuminate\Http\RedirectResponse;
+use App\Http\Controllers\StudentController;
+use App\Models\Student;
 
 class AssistController extends Controller
 {
@@ -28,20 +30,25 @@ class AssistController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAssistRequest $request) : RedirectResponse
+     public function store($dni) 
+     {
+         $assist = new Assist();
+         $assist->student_dni = $dni;
+         $assist->save();
+         return redirect()->route('students.index')->withSuccess('Asistencia cargada con éxito');
+        
+     }
+
+    public function search()
     {
-        
-        $dniAssist = $request->input('student_dni'); 
-        $assist = new Assist();
-        $assist->student_dni = $dniAssist;
-        $assist->save();
-        return redirect()->route('students.index')->withSuccess('Asistencia cargada con éxito');
-        
+        return view('assists.search');
     }
 
-    public function show(string $id)
+    public function show(Request $request)
     {
-        //
+       $student = Student::where('dni', $request->student_dni)->firstOrFail();
+        
+        return view('assists.show', compact('student'));
     }
 
     /**

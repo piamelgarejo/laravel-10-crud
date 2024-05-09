@@ -25,7 +25,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('students', StudentController::class);
     Route::get('assists/{dni}', [StudentController::class,'assists'])->name('student.assists');
     Route::get('assist/create', [AssistController::class, 'create'])->name('assists.create');
-    Route::post('assist/store', [AssistController::class, 'store'])->name('assists.store');
+    Route::post('assist/store/{dni}', [AssistController::class, 'store'])->name('assists.store');
+    Route::get('assist/search',[AssistController::class, 'search'])->name('assists.search');
+    Route::get('assist/show',[AssistController::class, 'show'])->name('assists.show');
 });
 
 
