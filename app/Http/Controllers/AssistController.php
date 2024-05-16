@@ -46,9 +46,15 @@ class AssistController extends Controller
 
     public function show(Request $request)
     {
+
        $student = Student::where('dni', $request->student_dni)->firstOrFail();
         
-        return view('assists.show', compact('student'));
+       if ($student){
+            return view('assists.show', compact('student'));
+       }
+       else {
+            return redirect()->route('students.index')->withErrors('Alumno no existente');
+       }
     }
 
     /**

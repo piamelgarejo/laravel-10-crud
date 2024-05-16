@@ -25,8 +25,8 @@
                         <div class="mb-3 row">
                             <label for="code" class="col-md-4 col-form-label text-md-end text-start">Dni</label>
                             <div class="col-md-6">
-                              <input type="integer" class="form-control @error('student_dni') is-invalid @enderror" id="student_dni" name="student_dni" value="{{ old('student_dni') }}">
-                                @if ($errors->has('student_dni'))
+                              <input type="integer" pattern="\d{8}" class="form-control @error('student_dni') is-invalid @enderror" id="student_dni" name="student_dni" value="{{ old('student_dni') }}">
+                                @if ('student_dni')
                                     <span class="text-danger">{{ $errors->first('student_dni') }}</span>
                                 @endif
                             </div>
