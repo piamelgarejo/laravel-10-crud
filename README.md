@@ -1,5 +1,7 @@
 # AssisTech
-AssistTech es un sistema que permite cargar alumnos, donde permite modificar y mostrar sus datos, eliminarlos. Además que permite visualizar un listado de asistencias existentes del alumno. El usuario podrá buscar, por medio de su dni, a un alumno, donde al encontrarlo podrá cargarle una nueva asistencia.
+AssistTech es un sistema que permite cargar alumnos, donde el usuario una vez registrado y logeado en el sistema podrá modificar y mostrar los datos de los alumnos, también eliminarlos. 
+Respecto a asistencias, el sistema permite visualizar un listado de las asistencias existentes del alumno seleccionado. Además el usuario podrá buscar, por medio de su dni, a un alumno, donde al encontrarlo podrá cargarle una nueva asistencia para el corriente día.
+El sistema posee un apartado en su pantalla de inicio donde se notificará cuando un alumno cargado cumpla años el corriente día.
 
 ### Pasos para la Instalación
 A continuación se describen los pasos para descargar el código y hacerlo funcionar en un entorno de Laravel 10.
