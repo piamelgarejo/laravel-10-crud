@@ -12,7 +12,7 @@
             </div>
         </div>
     </x-slot>
-        
+    
     <div class="row justify-content-center mt-3">
         <div class="col-md-8">
     
@@ -71,9 +71,6 @@
                         
                         <div class="mb-3 row">
                             <button type="submit" class="col-md-3 offset-md-5 btn btn-primary">Agregar asistencia</button>
-                             @if ($errors->has('student_dni'))
-                                <span class="text-danger">{{ $errors->first('student_dni') }}</span>
-                            @endif 
                         </div>
                         
                     </form>

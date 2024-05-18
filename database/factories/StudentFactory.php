@@ -20,7 +20,7 @@ class StudentFactory extends Factory
             'dni' => fake()->unique()->numberBetween(30000000,50000000),
             'name' => fake()->name(),
             'lastname' => fake()->lastName(),
-            'birthdate'=> fake()->date(),
+            'birthdate'=> fake()->dateTimeBetween('-50 years', '-18 years')->format('Y-m-d'),
             'cluster' => fake()->randomElement(['A', 'B']),
             'created_at'=> now(),
             'updated_at'=> now(),

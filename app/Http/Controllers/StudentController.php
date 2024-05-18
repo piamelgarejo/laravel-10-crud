@@ -11,14 +11,35 @@ use App\Http\Requests\UpdateStudentRequest;
 use App\Http\Controllers\AssistController;
 use App\Models\Assist;
 use App\Models\Student;
+use Carbon\Carbon;
 
 class StudentController extends Controller
 {
     public function index() : View
     {
+        $birthdays= $this->birthday();
         return view('students.index', [
-            'students' => Student::latest()->paginate(6)
+            'students' => Student::latest()->paginate(6),
+            'birthdays' => $birthdays,
         ]);
+    }
+
+    public function birthday()
+    {
+        $today = Carbon::today()->format('m-d') ;
+        $students = Student::select('name','lastname','birthdate')->get();
+        $cumples = [];
+
+        foreach ($students as $student){
+
+            $birthday = Carbon::parse($student->birthdate)->format('m-d'); 
+            
+            if ($today=== $birthday) {
+                $cumples[] =  $student->name . ' ' . $student->lastname;
+            }
+        }
+        
+        return $cumples;
     }
 
     public function create(Student $student) : View
@@ -70,5 +91,6 @@ class StudentController extends Controller
     
         return view('students.assists', compact('student','assists'));
     }
+
     
 }

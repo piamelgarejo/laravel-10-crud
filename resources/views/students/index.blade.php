@@ -78,5 +78,20 @@
         </div>
     </div>    
 </div>
+<div class="row justify-content-center mt-3">
+    <div class="col-md-8 alert alert-success text-center" role="alert">
+        @if(count($birthdays) > 0)
+            <h2>Hoy es el cumpleaños de:</h2>
+            <ul>
+                @foreach($birthdays as $birthday)
+                    <li>{{ $birthday }}</li>
+                @endforeach
+            </ul>
+            <h2>¡Deséale un feliz día!</h2>
+        @else
+            <p>No hay cumpleaños hoy.</p>
+        @endif
+    </div>
+</div>
 </x-app-layout>   
 @endsection

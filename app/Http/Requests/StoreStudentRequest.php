@@ -25,8 +25,22 @@ class StoreStudentRequest extends FormRequest
             'dni' => 'required|integer|unique:students,dni',
             'name' => 'required|string|max:250',
             'lastname' => 'required|string|max:250',
-            'birthdate' => 'required|date',
+            'birthdate' => 'required|date|before_or_equal:' .now()->subYears(18)->format('d-m-Y'),
             'cluster' => 'required|string',
         ];
+    }
+
+    public function messages()
+    {
+        return[
+            'dni.required' => 'Debe ingresar su Dni',
+            'dni.unique' => 'El Dni ingresado ya está registrado',
+            'name.required' => 'Debe ingresar su nombre',
+            'lastname.required' => 'Debe ingresar su apellido',
+            'birthdate.required' => 'Debe ingresar su fecha de nacimiento',
+            'birthdate.before_or_equal' => 'Debe ser mayor a 18 años para registrarse',
+            'cluster.required' => 'Debe ingresar el grupo al cual pertenece',
+        ];
+        
     }
 }
