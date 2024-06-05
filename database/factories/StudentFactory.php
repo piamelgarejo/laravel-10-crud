@@ -22,6 +22,7 @@ class StudentFactory extends Factory
             'lastname' => fake()->lastName(),
             'birthdate'=> fake()->dateTimeBetween('-50 years', '-18 years')->format('Y-m-d'),
             'cluster' => fake()->randomElement(['A', 'B']),
+            'year' => fake()->randomElement([1, 2, 3]),
             'created_at'=> now(),
             'updated_at'=> now(),
         ];

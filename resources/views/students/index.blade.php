@@ -35,6 +35,7 @@
                         <th scope="col">Apellido</th>
                         <th scope="col">Fecha de nacimiento</th>
                         <th scope="col">Grupo</th>
+                        <th scope="col">Año</th>
                         <th scope="col">Opciones</th> 
                       </tr>
                     </thead>
@@ -47,6 +48,7 @@
                             <td>{{ $student->lastname }}</td>
                             <td>{{ $student->birthdate }}</td>
                             <td>{{ $student->cluster }}</td>
+                            <td>{{ $student->year }}°</td>
                             <td>
                                 <form action="{{ route('students.destroy', $student->id) }}" method="post">
                                     @csrf

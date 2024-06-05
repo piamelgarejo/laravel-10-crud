@@ -12,9 +12,18 @@ use App\Http\Controllers\AssistController;
 use App\Models\Assist;
 use App\Models\Student;
 use Carbon\Carbon;
+use App\Http\Middleware\saveData;
 
 class StudentController extends Controller
 {
+    public function __construct()
+    {
+        //$this->middleware('saveData')->except(['index', 'birthday', 'show', 'create', 'edit', 'assists']);
+        $this->middleware('saveData:create-student')->only(['store']);
+        $this->middleware('saveData:edit-student')->only(['update']);
+        $this->middleware('saveData:delete-student')->only(['destroy']);
+    }
+
     public function index() : View
     {
         $birthdays= $this->birthday();
@@ -27,7 +36,7 @@ class StudentController extends Controller
     public function birthday()
     {
         $today = Carbon::today()->format('m-d') ;
-        $students = Student::select('name','lastname','birthdate')->get();
+        $students = Student::select('name','lastname','birthdate','year')->get();
         $cumples = [];
 
         foreach ($students as $student){
@@ -35,7 +44,7 @@ class StudentController extends Controller
             $birthday = Carbon::parse($student->birthdate)->format('m-d'); 
             
             if ($today=== $birthday) {
-                $cumples[] =  $student->name . ' ' . $student->lastname;
+                $cumples[] =  $student->name . ' ' . $student->lastname . ' de ' . $student->year . '° año';
             }
         }
         

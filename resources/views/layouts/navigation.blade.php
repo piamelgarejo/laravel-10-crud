@@ -21,6 +21,21 @@
                         {{ __('Consultar') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('assists.condition')" :active="request()->routeIs('assists.condition')">
+                        {{ __('Condiciones') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('parameters')" :active="request()->routeIs('parameters')">
+                        {{ __('Parametros') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('logging')" :active="request()->routeIs('logging')">
+                        {{ __('Loggings') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->

@@ -65,9 +65,19 @@
                     <div class="mb-3 row">
                         <label for="cluster" class="col-md-4 col-form-label text-md-end text-start">Grupo</label>
                         <div class="col-md-6">
-                          <input type="text" step="0.01" class="form-control @error('cluster') is-invalid @enderror" id="cluster" name="cluster" value="{{ old('cluster') }}">
+                          <input type="enum" step="0.01" class="form-control @error('cluster') is-invalid @enderror" id="cluster" name="cluster" value="{{ old('cluster') }}">
                             @if ($errors->has('cluster'))
                                 <span class="text-danger">{{ $errors->first('cluster') }}</span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="cluster" class="col-md-4 col-form-label text-md-end text-start">Año:</label>
+                        <div class="col-md-6">
+                          <input type="integer" step="0.01" class="form-control @error('year') is-invalid @enderror" id="year" name="year" value="{{ old('year') }}">
+                            @if ($errors->has('year'))
+                                <span class="text-danger">{{ $errors->first('year') }}</span>
                             @endif
                         </div>
                     </div>

@@ -14,7 +14,8 @@ class Student extends Model
         'name',
         'lastname',
         'birthdate',
-        'cluster'
+        'cluster',
+        'year'
     ];
 
     public function assists() {

@@ -67,4 +67,6 @@ Antes de comenzar, debes tener instalado en tu sistema:
     php artisan serve
     ```
 
+11. npm run dev 
+
 10. Abre tu navegador web y visita `http://localhost:8000` para ver la aplicación en funcionamiento.

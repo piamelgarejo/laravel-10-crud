@@ -73,13 +73,23 @@
                     <div class="mb-3 row">
                         <label for="cluster" class="col-md-4 col-form-label text-md-end text-start">Grupo</label>
                         <div class="col-md-6">
-                            <textarea class="form-control @error('cluster') is-invalid @enderror" id="cluster" name="cluster">{{ $student->cluster }}</textarea>
+                            <input type="enum" class="form-control @error('cluster') is-invalid @enderror" id="cluster" name="cluster" value="{{ $student->cluster }}">
                             @if ($errors->has('cluster'))
                                 <span class="text-danger">{{ $errors->first('cluster') }}</span>
                             @endif
                         </div>
                     </div>
                     
+                    <div class="mb-3 row">
+                        <label for="year" class="col-md-4 col-form-label text-md-end text-start">Año:</label>
+                        <div class="col-md-6">
+                            <input type="integer" class="form-control @error('year') is-invalid @enderror" id="year" name="year" value="{{ $student->year }}">
+                            @if ($errors->has('year'))
+                                <span class="text-danger">{{ $errors->first('year') }}</span>
+                            @endif
+                        </div>
+                    </div>
+
                     <div class="mb-3 row">
                         <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Update">
                     </div>

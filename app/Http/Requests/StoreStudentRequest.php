@@ -27,6 +27,7 @@ class StoreStudentRequest extends FormRequest
             'lastname' => 'required|string|max:250',
             'birthdate' => 'required|date|before_or_equal:' .now()->subYears(18)->format('d-m-Y'),
             'cluster' => 'required|string',
+            'year' => 'required|integer',
         ];
     }
 
@@ -40,6 +41,8 @@ class StoreStudentRequest extends FormRequest
             'birthdate.required' => 'Debe ingresar su fecha de nacimiento',
             'birthdate.before_or_equal' => 'Debe ser mayor a 18 años para registrarse',
             'cluster.required' => 'Debe ingresar el grupo al cual pertenece',
+            'year.required' => 'Debe ingresar el año al que pertenece',
+            'year.integer' => 'Ingrese un numero entero que represente el año al que pertenece',
         ];
         
     }
