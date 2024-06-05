@@ -71,4 +71,6 @@ Antes de comenzar, debes tener instalado en tu sistema:
 
 11. npm run dev 
 
-10. Abre tu navegador web y visita `http://localhost:8000` para ver la aplicación en funcionamiento.
+10. Realiza un php artisan db:seed
+
+11. Abre tu navegador web y visita `http://localhost:8000` para ver la aplicación en funcionamiento.
