@@ -67,7 +67,7 @@ Antes de comenzar, debes tener instalado en tu sistema:
 
 10. Abre tu navegador web y visita `http://localhost:8000` para ver la aplicación en funcionamiento.
 
-11. Si deseas agregar un rol de 'admin' a un usuario en específico puedes realizarlo por comando en la terminal de la siguiente manera:
+11. Si deseas agregar un rol de 'admin' a un usuario en específico puedes realizarlo por comando en la terminal:
     ```bash
     - php artisan tinker <- Ingrese este comando 
     - Ingrese $user = \App\Models\User::find('id del usuario que desea agregar el rol');
@@ -76,4 +76,8 @@ Antes de comenzar, debes tener instalado en tu sistema:
         $user->role = 'admin' <- si desea asignarle rol admin, sino puede configurar nombre del rol deseado;
     - $user->save();  <- Guarda los datos asignados
     - Exit <- Ingrese exit para cerrar tinker. 
-```
+    ```
+    Esto le permitirá visualizar sólo al que tenga el rol de administrador la pestaña de Loggings que permite visualizar cambios en editar, crear y eliminar estudiantes.
+
+12. Una vez levantado el sistema, ingrese a la pestaña parámetros y determine la cantidad de días de clases, porcentaje para promocionar y regularizar para poder calcular la condición de cada estudiante.
+
