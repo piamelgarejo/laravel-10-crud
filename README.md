@@ -33,11 +33,11 @@ Antes de comenzar, debes tener instalado en tu sistema:
     cp .env.example .env
     ```
 5. Ingrese los siguientes comandos desde la terminal:
-
+     ```bash
     -composer Install
 	-php artisan key:generate
 	-npm install
-
+     ```
 6. Crea una base de datos local en el motor MySql de tu preferencia.
 
 7. Configura tu base de datos en el archivo `.env` según la creación anterior de la base de datos local:
@@ -67,7 +67,8 @@ Antes de comenzar, debes tener instalado en tu sistema:
 
 10. Abre tu navegador web y visita `http://localhost:8000` para ver la aplicación en funcionamiento.
 
-11. Si deseas agregar un rol de 'admin' a un usuario en específico puedes realizarlo por comando en la terminal de la siguiente manera: 
+11. Si deseas agregar un rol de 'admin' a un usuario en específico puedes realizarlo por comando en la terminal de la siguiente manera:
+    ```bash
     - php artisan tinker <- Ingrese este comando 
     - Ingrese $user = \App\Models\User::find('id del usuario que desea agregar el rol');
         Ej: $user = \App\Models\User::find(1);
@@ -75,3 +76,4 @@ Antes de comenzar, debes tener instalado en tu sistema:
         $user->role = 'admin' <- si desea asignarle rol admin, sino puede configurar nombre del rol deseado;
     - $user->save();  <- Guarda los datos asignados
     - Exit <- Ingrese exit para cerrar tinker. 
+```
