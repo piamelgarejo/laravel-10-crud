@@ -67,11 +67,11 @@ Antes de comenzar, debes tener instalado en tu sistema:
 
 10. Abre tu navegador web y visita `http://localhost:8000` para ver la aplicación en funcionamiento.
 
-11. Si deseas agregar un rol de 'admin' a un usuario en específico puedes realizarlo por comando en la terminal de la siguiente manera: ```bash
+11. Si deseas agregar un rol de 'admin' a un usuario en específico puedes realizarlo por comando en la terminal de la siguiente manera: 
     - php artisan tinker <- Ingrese este comando 
     - Ingrese $user = \App\Models\User::find('id del usuario que desea agregar el rol');
         Ej: $user = \App\Models\User::find(1);
     - Devolverá los datos del usuario seleccionado, una vez chequeado que sea el correcto, ingrese:
         $user->role = 'admin' <- si desea asignarle rol admin, sino puede configurar nombre del rol deseado;
     - $user->save();  <- Guarda los datos asignados
-    - Exit <- Ingrese exit para cerrar tinker.   ```
+    - Exit <- Ingrese exit para cerrar tinker. 
